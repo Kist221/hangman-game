@@ -1,5 +1,6 @@
 
 // Variables needed for hangman game
+    var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];    
     var gameChoices = ["indigo", "crimson", "violet", "aqua", "beige", "brown", "purple", "yellow", "green", "chartreuse", "gold", "honeydew"];
     var user = document.getElementById("user");
     var guess = document.getElementById("guess");
@@ -17,13 +18,29 @@
     // Randomly chooses a choice from the options array. This is the Computer's guess.
     var computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)];
 
-    
+
+    // RESET THE GAME
+    function reset()
+    {
+
+      // reset vars
+      cGuess = 9;
+      uS = [];
+      activeChar = [];
+      tried = [];
+      computerGuess = gameChoices[Math.floor(Math.random() * gameChoices.length)]; 
+
+      // reset display
+      user.innerHTML = activeChar;
+      guess.innerHTML = cGuess;
+
+    };
 
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
 
     // Determines which key was pressed.
-    userGuess = event.key;
+    userGuess = event.key.toLowerCase();
 
     // Clear startup language
     active.innerHTML = "";
@@ -53,12 +70,11 @@
         }
 
 
-
     // Displays individual characters as _ replacing commas with spaces
     active.append(uS.join(" "));   
     
       // Only run if not duplicate input
-      if (tried.indexOf(userGuess) === -1)
+      if (tried.indexOf(userGuess) === -1 && alpha.indexOf(userGuess) !== -1)
       {
 
         // Only store wrong guesses for input list
@@ -68,7 +84,7 @@
         tried.push(userGuess);
 
         // Print Used Letters
-        user.innerHTML = tried.join(", ");
+        user.innerHTML = tried.join(", ").toUpperCase();
 
         }
 
@@ -105,7 +121,38 @@
 
         }
 
-      }
+
+    // Win Scenario
+    if (uS.indexOf("_") === -1)
+    {
+
+      // add 1 to win count
+      win.innerHTML = ++cWin;
+
+      // reset game
+      reset();
+      active.innerHTML = "YOU WON! - PLAY AGAIN";
+
+    }
+
+
+
+    // Lose Scenario
+    if (cGuess === 0)
+    {
+
+      // add 1 to lose count
+      lose.innerHTML = ++cLose;
+
+      // reset game
+      reset();
+      active.innerHTML = "YOU LOSE! - PLAY AGAIN";
+
+    }
+
+
+
+}
 
 
 
