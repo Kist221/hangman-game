@@ -1,7 +1,7 @@
 
 // Variables needed for hangman game
-    var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];    
-    var gameChoices = ["indigo", "crimson", "violet", "aqua", "beige", "brown", "purple", "yellow", "green", "chartreuse", "gold", "honeydew"];
+    var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    var gameChoices = ["indigo", "crimson", "violet", "aqua", "beige", "brown", "purple", "yellow", "green", "chartreuse", "gold", "honeydew", "white", "wheat", "turquoise", "tan", "snow", "silver", "sienna", "salmon", "red", "plum", "pink", "peach", "orchid", "orange", "olive", "maroon", "magenta", "linen", "lime", "khaki", "ivory", "lavender", "gray", "grey", "fuchsia", "coral", "black", "bisque"];
     var user = document.getElementById("user");
     var guess = document.getElementById("guess");
     var win = document.getElementById("win");
@@ -36,8 +36,30 @@
 
     };
 
+    function keySound()
+    {
+
+    };
+
+
+    // sets a random color
+    function randColor()
+    {
+
+      // Set random word color
+      colorChange = gameChoices[Math.floor(Math.random() * gameChoices.length)];
+
+      $("#change").css("background", colorChange);
+
+      $("#change2").css("color", colorChange);
+
+    };
+
+
     // This function is run whenever the user presses a key.
     document.onkeyup = function(event) {
+
+    randColor();
 
     // Determines which key was pressed.
     userGuess = event.key.toLowerCase();

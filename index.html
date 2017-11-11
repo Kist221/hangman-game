@@ -9,19 +9,21 @@
 
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  
 </head>
 
-<body>
+<body id="change">
 
-  <div class="container">
+  <div class="container mt-5">
 
-    <div class="jumbotron">
+    <div class="jumbotron bg-primary text-white">
       
-      <h1 class="display-5 text-center">Hangman Color Edition</h1>
+      <h1 class="display-5 text-center">Hangman <span id="change2">Color</span> Edition</h1>
       
       <hr class="my-4">
 
@@ -33,9 +35,9 @@
 
       <h2>Guesses Remaining: <span id="guess">9</span></h2>
 
-      <h2>Won: <span id="win">0</span></h2>
+      <h2 class="text-success">Won: <span id="win">0</span></h2>
 
-      <h2>Lost: <span id="lose">0</span></h2>
+      <h2 class="text-danger">Lost: <span id="lose">0</span></h2>
 
     </div>
 

@@ -10,7 +10,7 @@ h1, h2 {
 
 h2 {
 	margin: 34px;
-	color: teal;
+	color: white;
 }
 
 
@@ -18,11 +18,11 @@ h3 {
 	font-size: 26px;
 	font-weight: bold;
 	margin: 26px;
-	color: teal;
+	color: white;
 }
 
 body {
-	background: lightgrey;
+	background: black;
 }
 
 a {
