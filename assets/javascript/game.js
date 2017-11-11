@@ -38,7 +38,7 @@
 
     function keySound()
     {
-
+      // No time for key sound implementaion and didn't want to copy
     };
 
 
